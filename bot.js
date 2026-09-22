@@ -7,6 +7,14 @@ const {
   formatDailyReport
 } = require('./rss-bot.js');
 
+// 临时调试：看看环境变量有没有读到
+console.log('环境变量检查:', {
+  hasAppId: !!process.env.LARK_APP_ID,
+  hasAppSecret: !!process.env.LARK_APP_SECRET,
+  hasLlmKey: !!process.env.LLM_API_KEY
+});
+
+const client = new lark.Client({ ... });
 // 创建飞书客户端，用来发消息
 const client = new lark.Client({
   appId: process.env.LARK_APP_ID,
